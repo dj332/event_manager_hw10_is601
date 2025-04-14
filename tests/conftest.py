@@ -261,3 +261,29 @@ def user_response_data():
 @pytest.fixture
 def login_request_data():
     return {"username": "john_doe_123", "password": "SecurePassword123!"}
+
+from datetime import timedelta
+# Fixes Issue #5
+@pytest.fixture
+def admin_token(admin_user):
+    data = {
+        "sub": str(admin_user.id),
+        "role": admin_user.role.value  # assuming `role` is an Enum
+    }
+    return create_access_token(data=data, expires_delta=timedelta(minutes=60))
+
+@pytest.fixture
+def user_token(verified_user):
+    data = {
+        "sub": str(verified_user.id),
+        "role": verified_user.role.value
+    }
+    return create_access_token(data=data)
+
+@pytest.fixture
+def manager_token(manager_user):
+    data = {
+        "sub": str(manager_user.id),
+        "role": manager_user.role.value
+    }
+    return create_access_token(data=data)
