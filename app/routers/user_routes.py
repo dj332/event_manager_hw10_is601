@@ -139,14 +139,49 @@ async def create_user(user: UserCreate, request: Request, db: AsyncSession = Dep
     Returns:
     - UserResponse: The newly created user's information along with navigation links.
     """
+    # Fixes Issue #2
+    # Validate nickname if provided
+    if user.nickname:
+        if not 3 <= len(user.nickname) <= 30:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Nickname must be between 3 and 30 characters"
+            )
+        if not user.nickname.replace("_", "").replace("-", "").isalnum():
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Nickname can only contain letters, numbers, underscores, and hyphens"
+            )
+        # Check nickname uniqueness
+        existing_nickname = await UserService.get_by_nickname(db, user.nickname)
+        if existing_nickname:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Nickname already taken"
+            )
+
+    # Validate names if provided
+    for field, value in [('first_name', user.first_name), ('last_name', user.last_name)]:
+        if value and (not 2 <= len(value) <= 100 or not all(c.isalpha() or c.isspace() for c in value)):
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"{field} must be between 2 and 100 characters and contain only letters and spaces"
+            )
+
+    # Check email existence
     existing_user = await UserService.get_by_email(db, user.email)
     if existing_user:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email already exists")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Email already exists"
+        )
     
     created_user = await UserService.create(db, user.model_dump(), email_service)
     if not created_user:
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Failed to create user")
-    
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to create user"
+        )
     
     return UserResponse.model_construct(
         id=created_user.id,
