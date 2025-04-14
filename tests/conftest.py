@@ -264,7 +264,7 @@ def user_response_data():
 
 @pytest.fixture
 def login_request_data():
-    return {"email": "john.doe@example.com", "password": "SecurePassword123!"}
+    return {"email": "john.doe@example.com", "password": "SecurePassword123!"} # changed username is email
 
 from datetime import timedelta
 # Fixes Issue #5
