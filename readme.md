@@ -26,31 +26,41 @@ Issue Link: [Issue 1](https://github.com/dj332/event_manager_hw10_is601/issues/1
 
 ### Issue 2
 **Issue Despcription:** User validation not implemented
+
 **Fix:** Added user validation.
+
 **Link:**
 Issue Link: [Issue 2](https://github.com/dj332/event_manager_hw10_is601/issues/2)
 
 ### Issue 3
 **Issue Despcription:** Password validation is missing
+
 **Fix:** Added password validation.
+
 **Link:**
 Issue Link: [Issue 3](https://github.com/dj332/event_manager_hw10_is601/issues/3)
 
 ### Issue 4
 **Issue Despcription:** Profile and bio field tests absent
+
 **Fix:** Profile and bio field edge-cases tests added.
+
 **Link:**
 Issue Link: [Issue 4](https://github.com/dj332/event_manager_hw10_is601/issues/4)
 
 ### Issue 5
 **Issue Despcription:** User API test fails
+
 **Fix:** Fixed user api tests.
+
 **Link:**
 Issue Link: [Issue 5](https://github.com/dj332/event_manager_hw10_is601/issues/5)
 
 ### Issue 6
 **Issue Despcription:** test_user_schemas.py tests fail
+
 **Fix:** Something here
+
 **Link:**
 Issue Link: [Issue 6](https://github.com/dj332/event_manager_hw10_is601/issues/6)
 
