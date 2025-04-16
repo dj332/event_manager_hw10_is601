@@ -65,9 +65,10 @@ class UserResponse(UserBase):
     role: UserRole = Field(default=UserRole.AUTHENTICATED, example="AUTHENTICATED")
     is_professional: Optional[bool] = Field(default=False, example=True)
 
+# Fixed issue which professor talked about in class
 class LoginRequest(BaseModel):
-    email: str = Field(..., example="john.doe@example.com")
-    password: str = Field(..., example="Secure*1234")
+    email: str = Field("john.doe@example.com", example="john.doe@example.com")
+    password: str = Field("Secure*1234", example="Secure*1234") # matches registration, 
 
 class ErrorResponse(BaseModel):
     error: str = Field(..., example="Not Found")

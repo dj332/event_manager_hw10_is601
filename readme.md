@@ -64,6 +64,9 @@ Issue Link: [Issue 5](https://github.com/dj332/event_manager_hw10_is601/issues/5
 **Link:**
 Issue Link: [Issue 6](https://github.com/dj332/event_manager_hw10_is601/issues/6)
 
+>Resolved issue discussed by professor in [user_schemas.py](app/schemas/user_schemas.py)
+>**Current coverage is 92%.**
+
 ## Dockerhub
 Dockerhub Link for this project: [Dockerhub Link](https://hub.docker.com/repository/docker/dhjariwala/hw10/general)
 >To access this link you have to login to your dockerhub account.
@@ -85,6 +88,21 @@ Dockerhub Link for this project: [Dockerhub Link](https://hub.docker.com/reposit
 2. Learned how collaborating with others on github would look like.
 3. Learned how to use github issues to track bugs and issues.
 4. Expereinced small things that might go wrong while using github. For example, I had to give both accounts access to the repository, which needs to be avoided.
+
+## Submission Requirements
+
+To complete this assignment, submit the following:
+
+1. ✅ **GitHub Repository Link**: Ensure that your repository is well-organized and includes:
+  - ✅ Links to five closed issues, each with accompanying test code and necessary application code modifications.
+  - ✅ Each issue should be well-documented, explaining the problem, the steps taken to resolve it, and the outcome. Proper documentation helps others understand your work and facilitates future maintenance.
+  - ✅ All issues should be merged into the main branch, following the Git workflow and best practices.
+
+2. ✅ **Updated README**: Replace the existing README with:
+  - ✅ Links to the closed issues, providing easy access to your work.
+  - ✅ Link to project image deployed to Dockerhub.
+  - ✅ A 2-3 paragraph reflection on what you learned from this assignment, focusing on both technical skills and collaborative processes. Reflect on the challenges you faced, the solutions you implemented, and the insights you gained. This reflection helps solidify your learning and provides valuable feedback for improving the assignment in the future.
+
 
 ## Grading Rubric
 
